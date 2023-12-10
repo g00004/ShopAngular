@@ -66,7 +66,7 @@
         <div class="col-md-2">
             <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"> <i class="fa fa-search"></i> </span>
-            <input type="text" class="form-control" aria-label="" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" ng-model="searchText" aria-label="" aria-describedby="addon-wrapping">
             </div>
         </div>
         <div class="col-md-2">
@@ -86,7 +86,8 @@
             
             <div>
                 <div class="row">
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 mb-3" ng-repeat="product in products">
+                    <!-- ng-repeat recorremos todos los elementos que devolvemos del $scope y filter:searchText es el input que filtra este foreach -->
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 mb-3" ng-repeat="product in products | filter:searchText">
                         <div class="card h-100">
                             <img class="card-img-top" src="{{product.image}}" alt="{{product.title}}" width="100px" height="200px">
                             <div class="card-body p-4 bg-light">
